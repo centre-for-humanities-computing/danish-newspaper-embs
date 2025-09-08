@@ -13,6 +13,8 @@ the models used in our runs were:
 - MiMe-MeMo/MeMo-BERT-03
 - jinaai/jina-embeddings-v3
 - JohanHeinsen/Old_News_Segmentation_SBERT_V0.1
+- BAAI/bge-m3
+- google/embeddinggemma-300m
 
 Script runs one at a time and saves the (raw) output in data/raw
 
@@ -23,5 +25,7 @@ run (specifying output dir and input embeddings)(each model tested below)
 - python src/mean_pooling.py data/test_task/raw/emb__MiMe-MeMo__MeMo-BERT-03_597369d1 data/test_task/pooled/memo/
 - python src/mean_pooling.py data/test_task/raw/emb__jinaai__jina-embeddings-v3_597369d1 data/test_task/pooled/jina/
 - python src/mean_pooling.py data/test_task/raw/emb__JohanHeinsen__Old_News_Segmentation_SBERT_V0.1_597369d1/ data/test_task/pooled/old/
+- python src/mean_pooling.py data/test_task/raw/emb__BAAI__bge-m3_597369d1/ data/test_task/pooled/bge/
+- python src/mean_pooling.py data/test_task/raw/emb__google__embeddinggemma-300m_597369d1/ data/test_task/pooled/gemma/
 
 Script runs one at a time and saves the (pooled) output in data/pooled/<nickname>

@@ -124,7 +124,7 @@ def main(
     dataset_name: str = typer.Option('JohanHeinsen/ENO', help="Hugging Face dataset name, e.g. 'JohanHeinsen/ENO'"),
     split: str = typer.Option("train", help="Which split of the dataset to use"),
     output_dir: Path = typer.Option(..., help="Directory where the processed dataset will be saved, should be in embeddings"),
-    model_name: str = typer.Option(..., help="SentenceTransformer model name for inference"),
+    model_name: str = typer.Option('JohanHeinsen/Old_News_Segmentation_SBERT_V0.1', help="SentenceTransformer model name for inference"),
     prefix: str = typer.Option('Query: ', help="Optional prefix/instruction to add to each chunk before encoding"),
     prefix_description: str = typer.Option(None, help="Short description of the prefix (used in the output directory name)"),
 ):

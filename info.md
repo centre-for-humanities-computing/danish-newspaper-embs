@@ -29,3 +29,21 @@ run (specifying output dir and input embeddings)(each model tested below)
 - python src/mean_pooling.py data/test_task/raw/emb__google__embeddinggemma-300m_597369d1/ data/test_task/pooled/gemma/
 
 Script runs one at a time and saves the (pooled) output in data/pooled/<nickname>
+
+
+
+# Run embed_with_tei.py
+
+## Start TEI server
+docker run --gpus all -p 8080:80 \
+  ghcr.io/huggingface/text-embeddings-inference:latest \
+  --model-id JohanHeinsen/Old_News_Segmentation_SBERT_V0.1
+
+
+python embed_with_tei.py \
+  --dataset-name JohanHeinsen/ENO \
+  --split train \
+  --output-dir ./output \
+  --tei-url http://localhost:8080 \
+  --newspapers "Aalborg Stiftstidende,Viborg Stiftstidende" \
+  --max-articles 5000

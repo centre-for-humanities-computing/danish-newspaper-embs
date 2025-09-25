@@ -155,11 +155,11 @@ def main(
     output_path.mkdir(parents=True, exist_ok=True)
 
     # Load HF dataset
-    ds = pd.load_dataset(dataset_name, split=split)
+    ds = load_dataset(dataset_name, split=split)
 
     processed_articles = []
 
-    for _, row in tqdm(ds, total=len(ds), desc="Processing articles"):
+    for row in tqdm(ds, total=len(ds), desc="Processing articles"):
         article_id = row['id']
         text = row['text']
         nsp = row['newspaper']

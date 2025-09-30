@@ -31,19 +31,12 @@ run (specifying output dir and input embeddings)(each model tested below)
 Script runs one at a time and saves the (pooled) output in data/pooled/<nickname>
 
 
+# Newspapers
 
-# Run embed_with_tei.py
+Berlingske Tidende, Efterretninger fra Adresse-Contoiret i Bergen, Jyske Efterretninger, Københavns Adresseavis, Norske Intelligenssedler, Odense Adresse-Contoirs Efterretninger, Ribe Stifts Adresseaviser, Tronhiems Adresse-Contoirs Efterretninger, Viborger Samler
 
-## Start TEI server
-docker run --gpus all -p 8080:80 \
-  ghcr.io/huggingface/text-embeddings-inference:latest \
-  --model-id JohanHeinsen/Old_News_Segmentation_SBERT_V0.1
+# Embedding inference
 
-
-python embed_with_tei.py \
-  --dataset-name JohanHeinsen/ENO \
-  --split train \
-  --output-dir ./output \
-  --tei-url http://localhost:8080 \
-  --newspapers "Aalborg Stiftstidende,Viborg Stiftstidende" \
-  --max-articles 5000
+- process_articles_batches.py for chunking articles into 510 token chunks, result is saved as dataset
+- create_embs.py for embedding inference in batches, result is saved as parquet
+- mean_pooling.py needs to be adapted to parquet

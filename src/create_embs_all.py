@@ -1,4 +1,4 @@
-#!pip install einops
+#!pip install einops for jina
 
 import re
 import hashlib
@@ -37,7 +37,7 @@ default_output_dir = Path(__file__).parent /".." / "data" /"all"
 @app.command()
 def main(
     output_dir: Path = typer.Option(default_output_dir, help="Directory to save embeddings"),
-    model_name: str = typer.Option("jinaai/jina-embeddings-v3", help="SentenceTransformer model"),
+    model_name: str = typer.Option("JohanHeinsen/Old_News_Segmentation_SBERT_V0.1", help="SentenceTransformer model"),
     batch_size: int = typer.Option(512, help="Batch size for each GPU process"),
     max_articles: int = typer.Option(None, help="Limit total number of articles to process (for testing)"),
 ):
@@ -55,10 +55,10 @@ def main(
 
     writer = None
 
-    ds = load_from_disk(default_output_dir /"preprocessed_8194")
+    ds = load_from_disk(default_output_dir /"preprocessed_512")
 
 # Start multi-process pool (workers pinned to GPUs)
-    pool = model.start_multi_process_pool(target_devices=["cuda:0", "cuda:1", "cuda:2"])
+    pool = model.start_multi_process_pool(target_devices=["cuda:0", "cuda:1", "cuda:2", "cuda:3"])
 
     idx_texts = [(i, t) for i, chunk in enumerate(ds["chunks"]) for t in chunk]
     idx, texts = zip(*idx_texts)
@@ -78,17 +78,28 @@ def main(
         embs_col[idx].append(
         emb.tolist() if hasattr(emb, "tolist") else emb
     )
+
+    print("done mapping embeddings to ids")
     ds = ds.add_column(name="embedding", column=embs_col)
 
+    def encode_row(example):
+        chunks = example["chunks"]
+        if not chunks:
+            return {"embedding": []}
+        embs = model.encode(chunks, pool=pool, batch_size=batch_size, convert_to_numpy=True)
+        return {"embedding": [emb.tolist() for emb in embs]}
 
-    print("saving to disk - yo did it!")
+    #ds = ds.map(encode_row, batched=False)
+
+
+    print("saving to disk - you did it!")
     # Save embeddings dataset
-    ds.save_to_disk(output_dir / "embeddings_jina")
+    ds.save_to_disk(output_dir / "embeddings_old_news")
 
     # Stop pool
     model.stop_multi_process_pool(pool)
 
-    logger.info(f"✅ Finished. Saved embeddings to {output_dir/'embeddings_jina'}")
+    logger.info(f"✅ Finished. Saved embeddings to {output_dir/'embeddings_old_news'}")
 
 if __name__ == "__main__":
     app()

@@ -29,9 +29,14 @@ def clean_whitespace(text: str) -> str:
 
 
 def simple_sentencize(text: str) -> list[str]:
+    # Original regex
     sentences = re.findall(r"[^.!?]*[.!?]", text)
-    return [s.strip() for s in sentences if s.strip()]
+    sentences = [s.strip() for s in sentences if s.strip()]
 
+    # Fallback if no sentences found
+    if not sentences and text.strip():
+        return [text.strip()]
+    return sentences
 
 def chunk_sentences(sentences: list[str], max_tokens: int, tokenizer) -> list[str]:
     output, current_chunk, chunk_len = [], [], 0
@@ -89,7 +94,7 @@ def stream_batches(ds, batch_size):
     if batch:
         yield batch
 
-def preprocess(example, model_name="jinaai/jina-embeddings-v3", max_tokens=8194, prefix=None):
+def preprocess(example, model_name="JohanHeinsen/Old_News_Segmentation_SBERT_V0.1", max_tokens=512, prefix=None):
     # initialize tokenizer locally in worker
     if not hasattr(preprocess, "tokenizer"):
         preprocess.tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -111,6 +116,11 @@ def preprocess(example, model_name="jinaai/jina-embeddings-v3", max_tokens=8194,
     if current_chunk:
         chunks.append(" ".join(current_chunk))
 
+    # Fallback: if still no chunks, use full text
+    if not chunks and example["text"].strip():
+        logger.warning(f"No chunks produced for id={example.get('id', 'NA')}, using full text")
+        chunks = [example["text"].strip()]
+
     example["chunks"] = [f"{prefix} {c}" if prefix else c for c in chunks]
     return example
 
@@ -121,8 +131,7 @@ def main(
     dataset_name: str = typer.Option("JohanHeinsen/ENO", help="Hugging Face dataset name"),
     split: str = typer.Option("train", help="Which split to use"),
     output_dir: Path = typer.Option(default_output_dir, help="Directory to save embeddings"),
-    model_name: str = typer.Option("jinaai/jina-embeddings-v3", help="SentenceTransformer model"),
-    newspapers: str = typer.Option(None, help="Comma-separated list of newspaper names to include"),
+    model_name: str = typer.Option("JohanHeinsen/Old_News_Segmentation_SBERT_V0.1", help="SentenceTransformer model"),
     prefix: str = typer.Option(None, help="Prefix for each chunk"),
     prefix_description: str = typer.Option(None, help="Used in output dir name"),
     max_articles: int = typer.Option(None, help="Limit total number of articles to process (for testing)"),
@@ -139,29 +148,10 @@ def main(
     max_tokens = find_max_tokens(model.tokenizer)
     logger.info(f"Max tokens for {model_name}: {max_tokens}")
 
-    # Build output path
-    mname = model_name.replace("/", "__")
-    if prefix:
-        if prefix_description:
-            output_path = output_dir / f"emb__{mname}_{prefix_description}"
-        else:
-            prefix_hash = hash_prompt(prefix)
-            output_path = output_dir / f"emb__{mname}_{prefix_hash}"
-            logger.info(f"Hashing prefix: {prefix} == {prefix_hash}")
-    else:
-        output_path = output_dir / f"emb__{mname}"
-    output_path.mkdir(parents=True, exist_ok=True)
-
     writer = None
 
     # Load dataset in streaming mode
     ds = load_dataset(dataset_name, split=split, streaming=False)
-
-    # Filter newspapers if provided
-    if newspapers:
-        selected_newspapers = [n.strip() for n in newspapers.split(",")]
-        ds = ds.filter(lambda row: row["newspaper"] in selected_newspapers)
-        logger.info(f"Subset: {ds.num_rows} articles from {selected_newspapers}")
 
     if max_articles:
         ds = ds.select(range(min(max_articles, ds.num_rows)))
@@ -174,9 +164,9 @@ def main(
         )
 
     # Convert to Hugging Face Dataset and save
-    ds.save_to_disk(output_dir / "preprocessed_8194")
+    ds.save_to_disk(output_dir / "preprocessed_512")
 
-    logger.info(f"✅ Saved preprocessed dataset with chunks to {output_dir/'preprocessed_8194'}")
+    logger.info(f"✅ Saved preprocessed dataset with chunks to {output_dir/'preprocessed_512'}")
 
 if __name__ == "__main__":
     app()

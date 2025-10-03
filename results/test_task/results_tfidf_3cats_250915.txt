@@ -1,0 +1,11 @@
+model: TF-IDF
+Advertisement_precision: 0.9371147799760726
+Advertisement_recall: 0.9264
+Advertisement_f1: 0.9313476924601428
+National news_precision: 0.853041307115831
+National news_recall: 0.8779999999999998
+National news_f1: 0.8648134615235665
+International news_precision: 0.8845442129923096
+International news_recall: 0.9520000000000001
+International news_f1: 0.9166877989144443
+accuracy: 0.8962310030395136

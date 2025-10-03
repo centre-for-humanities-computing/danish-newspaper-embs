@@ -1,0 +1,54 @@
+2025-09-17 14:31:50,437 - INFO - ----------------------
+2025-09-17 14:31:50,438 - INFO - Evaluating embeddings from column: e-5
+2025-09-17 14:31:55,512 - INFO - e-5 | ARI: 0.411 | V-score: 0.434
+2025-09-17 14:31:55,512 - INFO - ----------------------
+2025-09-17 14:31:55,512 - INFO - Evaluating embeddings from column: jina
+2025-09-17 14:32:01,026 - INFO - jina | ARI: 0.295 | V-score: 0.349
+2025-09-17 14:32:01,028 - INFO - ----------------------
+2025-09-17 14:32:01,028 - INFO - Evaluating embeddings from column: memo
+2025-09-17 14:32:05,082 - INFO - memo | ARI: 0.329 | V-score: 0.312
+2025-09-17 14:32:05,083 - INFO - ----------------------
+2025-09-17 14:32:05,083 - INFO - Evaluating embeddings from column: old
+2025-09-17 14:32:09,387 - INFO - old | ARI: 0.548 | V-score: 0.509
+2025-09-17 14:32:09,388 - INFO - ----------------------
+2025-09-17 14:32:09,388 - INFO - Evaluating embeddings from column: bge
+2025-09-17 14:32:14,519 - INFO - bge | ARI: 0.305 | V-score: 0.351
+2025-09-17 14:32:14,520 - INFO - ----------------------
+2025-09-17 14:32:14,520 - INFO - Evaluating embeddings from column: gemma
+2025-09-17 14:32:18,693 - INFO - gemma | ARI: 0.054 | V-score: 0.099
+2025-09-17 14:32:28,856 - INFO - ----------------------
+2025-09-17 14:32:28,857 - INFO - Evaluating embeddings from column: e-5
+2025-09-17 14:32:34,004 - INFO - e-5 | ARI: 0.411 | V-score: 0.434
+2025-09-17 14:32:34,005 - INFO - ----------------------
+2025-09-17 14:32:34,006 - INFO - Evaluating embeddings from column: jina
+2025-09-17 14:32:38,920 - INFO - jina | ARI: 0.295 | V-score: 0.349
+2025-09-17 14:32:38,921 - INFO - ----------------------
+2025-09-17 14:32:38,921 - INFO - Evaluating embeddings from column: memo
+2025-09-17 14:32:42,875 - INFO - memo | ARI: 0.329 | V-score: 0.312
+2025-09-17 14:32:42,876 - INFO - ----------------------
+2025-09-17 14:32:42,876 - INFO - Evaluating embeddings from column: old
+2025-09-17 14:32:46,978 - INFO - old | ARI: 0.548 | V-score: 0.509
+2025-09-17 14:32:46,979 - INFO - ----------------------
+2025-09-17 14:32:46,980 - INFO - Evaluating embeddings from column: bge
+2025-09-17 14:32:52,506 - INFO - bge | ARI: 0.305 | V-score: 0.351
+2025-09-17 14:32:52,508 - INFO - ----------------------
+2025-09-17 14:32:52,508 - INFO - Evaluating embeddings from column: gemma
+2025-09-17 14:32:56,390 - INFO - gemma | ARI: 0.054 | V-score: 0.099
+2025-09-17 14:36:09,223 - INFO - ----------------------
+2025-09-17 14:36:09,223 - INFO - Evaluating embeddings from column: e-5
+2025-09-17 14:36:13,997 - INFO - e-5 | ARI: 0.422 | V-score: 0.43
+2025-09-17 14:36:13,998 - INFO - ----------------------
+2025-09-17 14:36:13,998 - INFO - Evaluating embeddings from column: jina
+2025-09-17 14:36:18,890 - INFO - jina | ARI: 0.445 | V-score: 0.47
+2025-09-17 14:36:18,891 - INFO - ----------------------
+2025-09-17 14:36:18,891 - INFO - Evaluating embeddings from column: memo
+2025-09-17 14:36:22,886 - INFO - memo | ARI: 0.196 | V-score: 0.204
+2025-09-17 14:36:22,887 - INFO - ----------------------
+2025-09-17 14:36:22,887 - INFO - Evaluating embeddings from column: old
+2025-09-17 14:36:26,882 - INFO - old | ARI: 0.554 | V-score: 0.568
+2025-09-17 14:36:26,884 - INFO - ----------------------
+2025-09-17 14:36:26,884 - INFO - Evaluating embeddings from column: bge
+2025-09-17 14:36:31,694 - INFO - bge | ARI: 0.345 | V-score: 0.395
+2025-09-17 14:36:31,696 - INFO - ----------------------
+2025-09-17 14:36:31,696 - INFO - Evaluating embeddings from column: gemma
+2025-09-17 14:36:35,673 - INFO - gemma | ARI: 0.015 | V-score: 0.013

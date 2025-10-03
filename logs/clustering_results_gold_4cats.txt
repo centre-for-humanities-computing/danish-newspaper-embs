@@ -1,0 +1,10 @@
+
+
+Clustering report:
+e-5: {'ari': 0.411, 'v_score': 0.434, 'n_clusters': 4}
+jina: {'ari': 0.295, 'v_score': 0.349, 'n_clusters': 4}
+memo: {'ari': 0.329, 'v_score': 0.312, 'n_clusters': 4}
+old: {'ari': 0.548, 'v_score': 0.509, 'n_clusters': 4}
+bge: {'ari': 0.305, 'v_score': 0.351, 'n_clusters': 4}
+gemma: {'ari': 0.054, 'v_score': 0.099, 'n_clusters': 4}
+

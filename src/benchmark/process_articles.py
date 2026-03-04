@@ -191,12 +191,6 @@ def main(
             logger.error(f"Inference error for article_id {article_id}: {e}")
             continue
 
-        # processed_articles.append({
-        #     "article_id": article_id,
-        #     "chunk": chunks,
-        #     "embedding": [emb.tolist() for emb in embeddings]
-        # })
-
         processed_articles.append({
             "article_id": str(article_id),
             "date": date,
@@ -204,18 +198,6 @@ def main(
             "chunk": [str(chunk) for chunk in chunks],
             "embedding": [list(map(float, emb)) for emb in embeddings]
         })
-
-    # # make sure they are the right format before dumping
-    # sanitized_articles = []
-    # for article in processed_articles:
-    #     sanitized_article = {
-    #         "article_id": str(article["article_id"]),
-    #         "chunk": [str(chunk) for chunk in article["chunk"]],
-    #         "embedding": [
-    #             [float(x) for x in embedding] for embedding in article["embedding"]
-    #         ]
-    #     }
-    #     sanitized_articles.append(sanitized_article)
 
 #    # Export processed data as a Hugging Face dataset and save to disk
     dataset = Dataset.from_list(processed_articles)

@@ -124,7 +124,7 @@ def preprocess(example, model_name="JohanHeinsen/Old_News_Segmentation_SBERT_V0.
     example["chunks"] = [f"{prefix} {c}" if prefix else c for c in chunks]
     return example
 
-default_output_dir = Path(__file__).parent /".." / "data" /"all"
+default_output_dir = Path(__file__).parent /"../.." / "data" /"all"
 
 @app.command()
 def main(

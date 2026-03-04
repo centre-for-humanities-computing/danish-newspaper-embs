@@ -32,7 +32,7 @@ def find_max_tokens(tokenizer):
         max_length = 510
     return max_length
 
-default_output_dir = Path(__file__).parent /".." / "data" /"all"
+default_output_dir = Path(__file__).parent /"../.." / "data" /"all"
 
 @app.command()
 def main(

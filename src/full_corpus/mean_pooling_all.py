@@ -24,7 +24,7 @@ def mean_pooling_fast(example):
         return {"pooled": None}
     return {"pooled": np.mean(chunk_embs, axis=0).tolist()}
 
-default_output_dir = Path(__file__).parent /".." / "data" /"all"
+default_output_dir = Path(__file__).parent /"../.." / "data" /"all"
 
 @app.command()
 def main(

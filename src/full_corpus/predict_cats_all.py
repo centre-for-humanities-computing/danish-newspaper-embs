@@ -98,9 +98,9 @@ def make_predict_fn(clf, embedding_col="pooled"):
 if __name__ == "__main__":
 
     # Paths
-    gold_path = "../data/test_task/subset_final_gold_sample.csv"
-    embs_path = "../data/test_task/pooled/merged_all"
-    model_out = "../models/logreg_classifier.joblib"
+    gold_path = "../../data/test_task/subset_final_gold_sample.csv"
+    embs_path = "../../data/test_task/pooled/merged_all"
+    model_out = "../../models/logreg_classifier.joblib"
 
     # Load gold labels
     sample_gold = pd.read_csv(gold_path)

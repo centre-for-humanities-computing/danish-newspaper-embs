@@ -42,7 +42,9 @@ Please cite our forthcoming [paper]() if you use the code, dataset or embeddings
 │       │
 │       ├── process_articles.py        <- Code to get embeddings from newspaper article chunks.
 │       ├── mean_pooling.py            <- Code to get average embeddings from newspaper articles.
-│       └── merge_text_embs.py         <- Merge texts and embeddings. 
+│       ├── merge_text_embs.py         <- Merge texts and embeddings.
+│       ├── classify.py                <- Code for benchmark task II.
+│       └── clustering_task.py         <- Code for benchmark task III.       
 │   
 ├── src/full_corpus                                          
 │       │

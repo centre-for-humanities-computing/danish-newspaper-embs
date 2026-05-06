@@ -6,6 +6,7 @@
 ###
 
 This repository contains code for embeddings, plots and results of our paper: 
+Lassche, A., Feldkamp, P., Bizzoni, Y., Baunvig, K., Nielbo, K., & Heinsen, J. (2026). Evaluating Embedding Models on Danish Historical Newspapers: A Corpus and Benchmark Resource. In Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026) (pp. 3577–3589). European Language Resources Association (ELRA). https://doi.org/10.63317/2hzf85aou6dw.
 
 Lassche, Alie, Pascale Feldkamp, Yuri Bizzoni, Katrine Baunvig, Kristoffer Nielbo, and Johan Heinsen. ‘Evaluating Embedding Models on Danish Historical Newspapers: A Corpus and Benchmark Resource’. Proceedings of the International Conference on Language Resources and Evaluation (LREC), May 2026.
 
@@ -26,8 +27,28 @@ Some useful directions:
 
 The dataset and embeddings generated in this paper are available at [HuggingFace](https://huggingface.co/datasets/chcaa/eno-embs-old-news), which is an enriched version of this [dataset](https://huggingface.co/datasets/JohanHeinsen/ENO).
 
-Please cite our forthcoming [paper]() if you use the code, dataset or embeddings.
+Please cite our [paper](https://doi.org/10.63317/2hzf85aou6dw) if you use the code, dataset or embeddings.
 
+**BibTEX**:
+
+```
+@inproceedings{lassche-etal-2026-evaluating,
+  title = {Evaluating Embedding Models on Danish Historical Newspapers: A Corpus and Benchmark Resource},
+  author = {Lassche, Alie and Feldkamp, Pascale and Bizzoni, Yuri and Baunvig, Katrine and Nielbo, Kristoffer and Heinsen, Johan},
+  booktitle = {Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026)},
+  month = {May},
+  year = {2026},
+  pages = {3577--3589},
+  address = {Palma, Mallorca, Spain},
+  publisher = {European Language Resources Association (ELRA)},
+  doi = {10.63317/2hzf85aou6dw},
+  abstract = {We present an enriched dataset of almost five million Danish historical newspaper articles from the late seventeenth to nineteenth century, augmented with semantic embeddings and an annotated subset, to enable semi-automated classification as well as thematic and linguistic exploration. Through three historical benchmark tasks that evaluate the performance of Danish and multilingual embedding models on this historical Danish corpus, we discuss how the choice for an embedding model depends on the type of task, and enrich our corpus with embeddings from the overall best performing model. As a showcase experiment, we look at the distribution of article categories in the three subgenres that can be observed in the corpus. This experiment highlights the corpus and article-level embeddings’ potential for further exploration and analysis of the Danish historical mediascape. The resource is freely available for research use and aims to foster reproducible, data-driven studies of language and culture in the Danish nineteenth century.}
+}
+```
+
+**APA**:
+
+Lassche, A., Feldkamp, P., Bizzoni, Y., Baunvig, K., Nielbo, K., & Heinsen, J. (2026). Evaluating Embedding Models on Danish Historical Newspapers: A Corpus and Benchmark Resource. In Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026) (pp. 3577–3589). European Language Resources Association (ELRA). https://doi.org/10.63317/2hzf85aou6dw.
 
 ## Project Organization 🏗️
 

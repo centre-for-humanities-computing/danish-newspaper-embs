@@ -6,9 +6,9 @@
 ###
 
 This repository contains code for embeddings, plots and results of our paper: 
-Lassche, A., Feldkamp, P., Bizzoni, Y., Baunvig, K., Nielbo, K., & Heinsen, J. (2026). Evaluating Embedding Models on Danish Historical Newspapers: A Corpus and Benchmark Resource. In Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026) (pp. 3577–3589). European Language Resources Association (ELRA). https://doi.org/10.63317/2hzf85aou6dw.
 
-Lassche, Alie, Pascale Feldkamp, Yuri Bizzoni, Katrine Baunvig, Kristoffer Nielbo, and Johan Heinsen. ‘Evaluating Embedding Models on Danish Historical Newspapers: A Corpus and Benchmark Resource’. Proceedings of the International Conference on Language Resources and Evaluation (LREC), May 2026.
+Lassche, Alie, Feldkamp, Pascale, Bizzoni, Yuri, Baunvig, Katrine, Nielbo, Kristoffer, & Heinsen, Johan. (2026). Evaluating Embedding Models on Danish Historical Newspapers: A Corpus and Benchmark Resource. In Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026) (pp. 3577–3589). European Language Resources Association (ELRA). https://doi.org/10.63317/2hzf85aou6dw.
+
 
 ## Useful directions 📌
 
@@ -49,6 +49,7 @@ Please cite our [paper](https://doi.org/10.63317/2hzf85aou6dw) if you use the co
 **APA**:
 
 Lassche, A., Feldkamp, P., Bizzoni, Y., Baunvig, K., Nielbo, K., & Heinsen, J. (2026). Evaluating Embedding Models on Danish Historical Newspapers: A Corpus and Benchmark Resource. In Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026) (pp. 3577–3589). European Language Resources Association (ELRA). https://doi.org/10.63317/2hzf85aou6dw.
+
 
 ## Project Organization 🏗️
 
